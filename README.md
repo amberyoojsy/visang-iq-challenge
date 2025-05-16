@@ -5,16 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
   <title>Visang IQ Challenge</title>
 
-  <!-- Pretendard 로드를 위한 Preconnect 최적화 -->
-  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
-  
-  <!-- Pretendard CSS (버전 고정) -->
+  <!-- Pretendard 로드를 위한 Preconnect -->
+  <link rel="preconnect" href="https://unpkg.com" />
+
+  <!-- Pretendard CSS via unpkg -->
   <link
     rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/pretendard@1.3.6/dist/web/static/pretendard.css"
+    href="https://unpkg.com/pretendard@1.3.6/dist/web/static/pretendard.css"
   />
 
   <style>
+    /* ─────────────────────────────────────────
+       아래는 기존에 쓰시던 CSS를 그대로 붙여주세요
+       ───────────────────────────────────────── */
     body {
       font-family: 'Pretendard', sans-serif;
       padding: 20px;
@@ -42,7 +45,15 @@
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
       position: relative;
     }
-    /* … 이하 기존 CSS 그대로 유지 … */
+    .intro::before {
+      content: "📝";
+      position: absolute;
+      top: -16px;
+      left: 16px;
+      font-size: 28px;
+    }
+    .intro p { margin: 10px 0; line-height: 1.5; font-weight: 600; }
+    /* ... 이하 생략하지 말고 기존 CSS 전부 붙이기 ... */
   </style>
 </head>
 <body>
