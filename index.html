@@ -178,10 +178,21 @@
 <body>
   <h1>Visang IQ Challenge</h1>
   <div class="intro">
-    <p>CP님들께서 비상을 더 즐겁고 흥미롭게 알아가실 수 있도록</p>
-    <p>비상의 비전, 역사, 그리고 사옥에 대한 퀴즈,<br />바로 🌟 <strong>VISANG IQ (Identity Quiz)</strong> 🌟를 준비했습니다!</p>
-    <p>💡 챌린지를 통과하신 후에는 페들렛에 궁금한 점이나, 퀴즈를 통해 생긴 질문들을 자유롭게 남겨주세요.</p>
-    <p>비상의 뿌리와 비전을 자연스럽게 이해하며 자부심을 느끼는 시간이 되시길 바랍니다. 감사합니다. 💛</p>
+    <p>
+    CP님들께서 비상을 더 즐겁고 흥미롭게 알아가실 수 있도록
+  </p>
+  <p>
+    비상의 비전, 역사, 그리고 사옥에 대한 퀴즈,<br/>
+    바로 🌟 <strong>VISANG IQ (Identity Quiz)</strong> 🌟를 준비했습니다!
+  </p>
+  <p>
+    💡 챌린지를 통과하신 후에는 페들렛에 궁금한 점이나,<br/>
+    퀴즈를 통해 생긴 질문들을 자유롭게 남겨주세요.
+  </p>
+  <p>
+    비상의 뿌리와 비전을 자연스럽게 이해하며<br/>
+    자부심을 느끼는 시간이 되시길 바랍니다. 감사합니다. 💛
+  </p>
   </div>
 
   <!-- 1) action·target·숨김필드 추가 -->
@@ -191,15 +202,29 @@
     method="post"
     target="submitFrame"
   >
-    <!-- 사용자 정보 -->
-    <div class="question">
-      <h3>이름을 입력해 주세요!<span class="required-note">*</span></h3>
-      <input type="text" name="userName" placeholder="이름을 입력해 주세요!" required />
-    </div>
-    <div class="question">
-      <h3>사번을 입력해 주세요!<span class="required-note">*</span></h3>
-      <input type="text" name="employeeId" placeholder="사번을 입력해 주세요!" required />
-    </div>
+    <!-- 사용자 정보: 이름 -->
+<div class="question">
+  <h3>
+    이름을 입력해 주세요!
+    <span class="required-note">*</span>
+  </h3>
+  <input type="text"
+         name="userName"
+         placeholder="이름을 입력해 주세요!"
+         required />
+</div>
+
+<!-- 사용자 정보: 사번 -->
+<div class="question">
+  <h3>
+    사번을 입력해 주세요!
+    <span class="required-note">*</span>
+  </h3>
+  <input type="text"
+         name="employeeId"
+         placeholder="사번을 입력해 주세요!"
+         required />
+</div>
 
     <!-- 1–14 객관식 -->
     <div class="question"><h3 data-question="1">2023년 비상교육의 경영 방침은 무엇이었나요?<span class="required-note">*</span></h3>
