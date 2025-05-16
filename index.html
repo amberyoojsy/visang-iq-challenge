@@ -14,9 +14,21 @@
   />
 
   <style>
-    /* ───────────────────────────────────────────
-       1) 번호 표시용 CSS: .question h3[data-question] 바로 아래에 붙여넣기
-       ─────────────────────────────────────────── */
+    /* ── 필수별표(*) 위치용 CSS ── */
+    .question h3 {
+      position: relative;
+    }
+
+    .required-note {
+      position: absolute;
+      top: 0;
+      right: 0;
+      color: red;
+      font-size: 1em;
+      font-weight: bold;
+    }
+
+    /* ── 번호 표시용 CSS ── */
     .question h3[data-question] {
       position: relative;
       padding-left: 2.4em;
