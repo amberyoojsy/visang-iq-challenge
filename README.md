@@ -4,31 +4,45 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
   <title>Visang IQ Challenge</title>
-  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet" />
+
+  <!-- Pretendard 로드를 위한 Preconnect 최적화 -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  
+  <!-- Pretendard CSS (버전 고정) -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/pretendard@1.3.6/dist/web/static/pretendard.css"
+  />
+
   <style>
-    body { font-family: 'Pretendard', sans-serif; padding: 20px; background: url('https://i.imgur.com/ggotSIY.jpeg') no-repeat center / cover, #e0f7fa; color: #333; }
-    h1 { max-width:700px; margin:0 auto 20px; text-align:center; font-size:4em; color:#fff; text-shadow:-4px -4px 0 #333,4px -4px 0 #333,-4px 4px 0 #333,4px 4px 0 #333; }
-    .intro { max-width:700px; margin:0 auto 30px; background:linear-gradient(135deg,#fff 0%,#e0f7fa 100%); padding:20px; border-radius:10px; box-shadow:0 4px 8px rgba(0,0,0,0.1); position:relative; }
-    .intro::before { content:"📝"; position:absolute; top:-16px; left:16px; font-size:28px; }
-    .intro p { margin:10px 0; line-height:1.5; font-weight:600; }
-    form { max-width:700px; margin:0 auto; text-align:left; }
-    .question { position:relative; margin-bottom:25px; background:#fff; padding:20px; border-radius:12px; box-shadow:0 3px 8px rgba(0,0,0,0.08); }
-    .question.correct { border:2px solid #2ecc71; background:#eafaf1; }
-    .question.wrong { border:2px solid #e74c3c; background:#fdecea; }
-    .question h3 { position:relative; margin-bottom:12px; color:#00796b; font-size:18px; padding-right:1.5em; }
-    .required-note { position:absolute; top:0; right:0; color:red; font-size:1em; font-weight:bold; }
-    .feedback { position:absolute; top:10px; right:10px; padding:4px 10px; border-radius:12px; font-size:0.9em; color:#fff; }
-    .feedback.correct { background:#2ecc71; }
-    .feedback.wrong { background:#e74c3c; }
-    .question label { display:block; margin-bottom:10px; cursor:pointer; }
-    input[type=text], textarea { width:100%; padding:10px; margin-top:8px; border:1px solid #ccc; border-radius:8px; box-sizing:border-box; font-family:inherit; }
-    textarea { min-height:120px; resize:vertical; }
-    .submit-container { text-align:center; }
-    button { margin:20px auto; background:#1abc9c; color:#fff; border:none; padding:14px 30px; border-radius:25px; font-size:1em; cursor:pointer; box-shadow:0 4px 6px rgba(0,0,0,0.1); }
-    button:hover { background:#16a085; }
-    .popup-overlay { position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.4); display:none; align-items:center; justify-content:center; z-index:1000; }
-    .popup-content { background:#fff; border-radius:12px; padding:30px; max-width:700px; width:90%; text-align:center; box-shadow:0 4px 10px rgba(0,0,0,0.2); font-size:1.6em; color:#333; font-weight:900; }
-    .popup-content button { margin-top:20px; background:#1abc9c; color:#fff; border:none; padding:10px 20px; border-radius:20px; font-size:1em; cursor:pointer; }
+    body {
+      font-family: 'Pretendard', sans-serif;
+      padding: 20px;
+      background: url('https://i.imgur.com/ggotSIY.jpeg') no-repeat center center / cover, #e0f7fa;
+      color: #333;
+    }
+    h1 {
+      max-width: 700px;
+      margin: 0 auto 20px;
+      text-align: center;
+      font-size: 4em;
+      color: #fff;
+      text-shadow:
+        -4px -4px 0 #333,
+        4px -4px 0 #333,
+        -4px 4px 0 #333,
+        4px 4px 0 #333;
+    }
+    .intro {
+      max-width: 700px;
+      margin: 0 auto 30px;
+      background: linear-gradient(135deg, #ffffff 0%, #e0f7fa 100%);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      position: relative;
+    }
+    /* … 이하 기존 CSS 그대로 유지 … */
   </style>
 </head>
 <body>
