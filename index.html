@@ -14,6 +14,24 @@
   />
 
   <style>
+    /* ── 여기에 붙여넣으세요 ── */
+    .start-hidden {
+      display: none;
+    }
+    .start-btn {
+      background: #1abc9c;
+      color: #fff;
+      border: none;
+      padding: 14px 30px;
+      border-radius: 25px;
+      font-size: 1em;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      transition: background 0.3s;
+    }
+    .start-btn:hover {
+      background: #16a085;
+    }
     /* ── 필수별표(*) 위치용 CSS ── */
     .question h3 {
       position: relative;
@@ -51,7 +69,24 @@
       line-height: 1.6em;
       font-size: 0.9em;
     }
-
+/* ── 챌린지 시작 버튼 & 섹션 숨김 CSS ── */
+  .start-hidden {
+    display: none;
+  }
+  .start-btn {
+    background: #1abc9c;
+    color: #fff;
+    border: none;
+    padding: 14px 30px;
+    border-radius: 25px;
+    font-size: 1em;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: background 0.3s;
+  }
+  .start-btn:hover {
+    background: #16a085;
+  }
     /* ───────────────────────────────────────────
        2) 기존 CSS (그대로 유지)
        ─────────────────────────────────────────── */
@@ -244,31 +279,31 @@ h1::after {
 </head>
 <body>
   <h1>Visang IQ Challenge</h1>
-  <div class="intro">
-    <p>
-    CP님들께서 비상을 더 즐겁고 흥미롭게 알아가실 수 있도록
-  </p>
-  <p>
-    비상의 비전, 역사, 그리고 사옥에 대한 퀴즈,<br/>
-    바로 🌟 <strong>VISANG IQ (Identity Quiz)</strong> 🌟를 준비했습니다!
-  </p>
-  <p>
-    💡 챌린지를 통과하신 후에는 페들렛에 궁금한 점이나,<br/>
-    퀴즈를 통해 생긴 질문들을 자유롭게 남겨주세요.
-  </p>
-  <p>
-    비상의 뿌리와 비전을 자연스럽게 이해하며<br/>
-    자부심을 느끼는 시간이 되시길 바랍니다. 감사합니다. 💛
-  </p>
+
+  <!-- 인트로 섹션 -->
+  <div class="intro" id="introSection">
+    <p>CP님들께서 비상을 더 즐겁고 흥미롭게 알아가실 수 있도록</p>
+    <p>비상의 비전, 역사, 그리고 사옥에 대한 퀴즈,<br/>
+       바로 🌟 <strong>VISANG IQ (Identity Quiz)</strong> 🌟를 준비했습니다!</p>
+    <p>💡 챌린지를 통과하신 후에는 페들렛에 궁금한 점이나,<br/>
+       퀴즈를 통해 생긴 질문들을 자유롭게 남겨주세요.</p>
+    <p>비상의 뿌리와 비전을 자연스럽게 이해하며<br/>
+       자부심을 느끼는 시간이 되시길 바랍니다. 감사합니다. 💛</p>
+
+    <!-- 챌린지 시작 버튼 -->
+    <div class="start-container" style="text-align:center; margin-top:20px;">
+      <button id="startBtn" class="start-btn">챌린지 도전!</button>
+    </div>
   </div>
 
-  <!-- 1) action·target·숨김필드 추가 -->
-  <form
-    id="quizForm"
-    action="https://script.google.com/macros/s/AKfycbyBm9ochv6aOdQufS2EL9YOfs8yMwM5n5ZIyTy907OBoDS-4olCNBiqpNO8RI1UL_4P/exec"
-    method="post"
-    target="submitFrame"
-  >
+  <!-- 퀴즈 섹션: 처음엔 숨김 -->
+  <div id="quizSection" class="start-hidden">
+    <form
+      id="quizForm"
+      action="https://script.google.com/macros/s/AKfycbyBm9ochv6aOdQufS2EL9YOfs8yMwM5n5ZIyTy907OBoDS-4olCNBiqpNO8RI1UL_4P/exec"
+      method="post"
+      target="submitFrame"
+    >
     <!-- 사용자 정보: 이름 -->
 <div class="question">
   <h3>
@@ -411,23 +446,35 @@ h1::after {
     <div class="popup-content" id="popupContent"></div>
   </div>
 
-  <!-- 2) JS: form.submit() 로직 -->
+<!-- 2) JS: form.submit() 로직 & 인트로→퀴즈 토글 -->
   <script>
-  console.log('✅ 스크립트 로드 완료');
-  const form = document.getElementById('quizForm');
-  console.log('🔍 form 객체:', form);
-  if (!form) throw new Error('quizForm을 찾을 수 없습니다.');
+    console.log('✅ 스크립트 로드 완료');
 
-  let retryCount = 0;
-  const correctAnswers = {
-    q1:'b', q2:'b', q3:'a', q4:'b', q5:'c',
-    q6:'b', q7:'a', q8:'d', q9:'a', q10:'b',
-    q11:'c', q12:'c', q13:'c', q14:'c'
-  };
+    // (A) 챌린지 토글 로직: DOM 준비 후 실행
+    document.addEventListener('DOMContentLoaded', () => {
+      const startBtn = document.getElementById('startBtn');
+      const introSec = document.getElementById('introSection');
+      const quizSec  = document.getElementById('quizSection');
+      startBtn.addEventListener('click', () => {
+        introSec.style.display = 'none';
+        quizSec.style.display  = 'block';
+      });
+    });
 
-  form.addEventListener('submit', function(e) {
-    console.log('🛎️ submit 핸들러 호출됨');
-    e.preventDefault();
+    // (B) 기존 폼 제출/채점 로직
+    const form = document.getElementById('quizForm');
+    if (!form) throw new Error('quizForm을 찾을 수 없습니다.');
+
+    let retryCount = 0;
+    const correctAnswers = {
+      q1:'b', q2:'b', q3:'a', q4:'b', q5:'c',
+      q6:'b', q7:'a', q8:'d', q9:'a', q10:'b',
+      q11:'c', q12:'c', q13:'c', q14:'c'
+    };
+
+    form.addEventListener('submit', function(e) {
+      console.log('🛎️ submit 핸들러 호출됨');
+      e.preventDefault();
 
     // 1) 사용자 정보 & 점수 계산
     const userName   = this.querySelector('input[name="userName"]').value;
