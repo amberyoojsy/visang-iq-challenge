@@ -268,4 +268,4 @@
       document.querySelector('.submit-container')?.remove();
     }
   });
-</script># visang-iq-challenge
+</script>
